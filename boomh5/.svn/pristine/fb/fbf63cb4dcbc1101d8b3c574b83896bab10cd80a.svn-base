@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>P2P暴雷情报站</title>
+	<link rel="stylesheet" href="css/flex.css">
+	<link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="loading-warp">
+			<div class="box">
+				<!-- <div> -->
+					<img src="image/refresh.png" />
+					<span class="text">松开刷新页面</span>
+				<!-- </div> -->
+			</div>
+		</div>
+		<!-- banner -->
+		<div class="banner">
+			<div class="ipt_div">
+				<input type="text" id="search" placeholder="搜索暴雷情报">
+				<span class="search_img"></span>
+			</div>
+		</div>
+		<!-- list -->
+		<div class="list">
+			<div class="list_li">
+				<div class="list_top">
+					<div class="list_left">
+						<image src='image/img.png'></image>
+					</div>
+					<div class="list_right">
+						你的钱都去了哪里？深挖P2P在营五大业务
+					</div>
+				</div>
+				<div class="list_foot">
+					<div class="yue">
+						<span class="eye_icon"></span>
+						<span class="f6_12">阅读</span>
+						<span class="f9_12">666</span>
+					</div>
+					<div class="zhuan">
+						<span class="share_icon"></span>
+						<span class="f6_12">转发</span>
+						<span class="f9_12">666</span>
+					</div>
+					<div class="time">刚刚</div>
+				</div>
+			</div>
+			<div class="list_li">
+				<div class="list_top">
+					<div class="list_left">
+						<image src='image/img.png'></image>
+					</div>
+					<div class="list_right">
+						你的钱都去了哪里？深挖P2P在营五大业务
+					</div>
+				</div>
+				<div class="list_foot">
+					<div class="yue">
+						<span class="eye_icon"></span>
+						<span class="f6_12">阅读</span>
+						<span class="f9_12">666</span>
+					</div>
+					<div class="zhuan">
+						<span class="share_icon"></span>
+						<span class="f6_12">转发</span>
+						<span class="f9_12">666</span>
+					</div>
+					<div class="time">刚刚</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/flex.js"></script>
+<script src="js/p-pull-refresh.js"></script>
+<script src="js/index.js"></script>
+<script>
+
+</script>
+
+</html>

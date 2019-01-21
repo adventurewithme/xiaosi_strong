@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>P2P暴雷情报站</title>
+</head>
+
+<body>
+	<div class="div1"></div>
+	<div class="div2"></div>
+</body>
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/flex.js"></script>
+
+</html>

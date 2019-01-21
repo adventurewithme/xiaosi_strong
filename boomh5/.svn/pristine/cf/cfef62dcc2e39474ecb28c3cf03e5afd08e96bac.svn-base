@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>P2P暴雷情报站</title>
+    <link rel="stylesheet" href="css/flex.css">
+    <link rel="stylesheet" href="css/detail.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <div class="title">特殊时期，要理性处理平台危机（请随手转发）！</div>
+            <div class="f9_12">
+<span>P2P雷暴情报站</span>
+<span class="time">2018-08-12</span>
+            </div>
+        </div>
+        <div class="center">
+            <span class="weight">核心提示：</span>
+            <span>给你高分高能 法国咯的房价 返回东方多份肌肉阿回复日方花蕊</span>
+        </div>
+        <div class="arctle"></div>
+        <div class="share">
+            <button class="share_btn">
+                <img src="image/zhuanfa.png">
+                转发</button>
+        </div>
+    </div>
+</body>
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/flex.js"></script>
+<script>
+</script>
+
+</html>

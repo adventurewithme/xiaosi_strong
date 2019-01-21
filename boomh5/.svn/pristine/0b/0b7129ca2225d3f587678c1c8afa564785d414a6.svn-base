@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>搜索页</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="js/flex.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/flex.css"/>
+	</head>
+	<body>
+		<div class="wide">
+			<div class="head">
+				<div class="search">
+					<img src="image/Fill11@3x.png" class="search-icon"/>
+					<input type="text" name="" id="" value="" placeholder="请输入平台名称查询"/>
+					
+					<img src="image/cancle@3x.png" class="cancle"/>
+				</div>
+				<div class="search-btn">
+					搜索
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<style type="text/css">
+	html{
+		font-size: 100px;
+	}
+	.head{
+		background:rgba(242,242,242,1);
+		padding: 0.2rem;
+		box-sizing: border-box;
+	}
+	.search{
+		display: inline-block;
+		line-height: .32rem;
+	}
+	.search img{
+		width: .32rem;
+		height: .32rem;
+		display: inline-block;
+		position: absolute;
+		top: 1rem;
+		z-index: 100;
+	}
+	.search-icon{
+		left: 0.3rem;
+	}
+	.cancle{
+		right: 1.7rem;
+	}
+	input{
+		width: 5.72rem;
+		font-size: .28rem;
+		display: inline-block;
+		background: #FFFFFF;
+		border-radius: .36rem;
+		line-height: .72rem;
+		border: none;
+		position: relative;
+		padding: 0 .5rem;
+		box-sizing: border-box;
+	}
+	.search-btn{
+		width: 1rem;
+		font-size: .28rem;
+		color: #333;
+		line-height: 0.6rem;
+		text-align: center;
+		border:1px solid rgba(151,151,151,0.3);
+		background:rgba(255,255,255,1);
+		display: inline-block;
+		border-radius: .12rem;
+	}
+</style>
