@@ -1,0 +1,79 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+/* 中间居中样式 */
+.your_m,.read,.read_list,.to_share{
+  display:flex;
+  flex-direction:row;
+}
+.content_center{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background:#F5FAFF;
+}
+.Use_money{
+  width:690rpx;
+  height:300rpx;
+  background:pink;
+  background:rgba(255,255,255,1);
+  box-shadow:0rpx 2rpx 4rpx 0rpx rgba(5,46,71,0.16);
+  border-radius:4rpx;
+  margin-top:30rpx;
+}
+.your_m{
+  height:180rpx;
+  margin:30rpx 32rpx;
+}
+.your_m>image{
+  width:271rpx;
+  height:180rpx;
+}
+.right_Title{
+  width:334rpx;
+  margin-left:21rpx;
+  font-size:32rpx;
+  font-family:PingFangSC-Semibold;
+  color:rgba(5,46,71,1);
+  line-height:44rpx;
+  white-space:normal;
+  display: -webkit-box;
+  -webkit-line-clamp:4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight:bold;
+}
+.read{
+  align-items:center;
+  height:61rpx;
+  padding:0 28rpx 0 36rpx;
+  background:#F9FCFF;
+}
+.read_list>image,.to_share>image{
+  width:32rpx;
+  height:32rpx;
+  margin-right:8rpx;
+}
+.read_list,.to_share{
+  font-size:24rpx;
+  font-family:PingFangSC-Semibold;
+  color:rgba(102,102,102,1);
+}
+.to_time{
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  color:rgba(153,153,153,1);
+  line-height:34rpx;
+  text-align:right;
+  width:156rpx;
+}

@@ -1,0 +1,38 @@
+<!--pages/details/details.wxml-->
+<!-- <import src="../../wxParse/wxParse.wxml" /> -->
+<view class='wide'>
+  <!-- 头部标题开始 -->
+  <view class='top'>
+    <view class='top-title'>{{contentall.title}}</view>
+    <view class='top-xinxi'>
+      <text class='top-from'>{{contentall.belong}}</text>
+      <text class='top-from'>{{contentall.update_time}}</text>
+    </view>
+  </view>
+  <!-- 头部标题结束 -->
+  <!-- 中间内容开始 -->
+  <view class='main-content'>
+    <view class='core' hidden='{{core}}'>
+      <text class='core-tip'>核心提示:</text>
+      <text class='core-content'>{{contentall.tips}}</text>
+    </view>
+
+    <!-- <view class='content'>
+      <template is="wxParse" data="{{wxParseData:arcitle.nodes}}" />
+    </view> -->
+    <import src="../../parse/index.wxml" />
+      <view class="wxParser des">
+        <template is="wxParser" data="{{wxParserData:des.nodes}}" />
+      </view>
+  </view>
+  <!-- 中间内容结束 -->
+  <button class='relay' open-type='share'>
+    <image src='../../images/zhuanfa.png'></image>
+    转发
+  </button>
+</view>
+
+
+ <view hidden="{{hidden}}" class='load'>
+  <image src='../../images/loading.gif'></image>
+ </view>
