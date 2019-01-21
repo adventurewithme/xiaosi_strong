@@ -1,0 +1,63 @@
+<!--pages/search/search.wxml-->
+<view class='wide'>
+  <view class='page_row'>
+    <view class="search">
+      <!-- <view class="df search_arr"> -->
+      <icon class="searchcion" size='20' type='search'></icon>
+      <input class="" placeholder="请输入关键字" value="{{searchValue}}" type='text' bindinput="searchValueInput" bindconfirm="search" focus='{{focus}}'/>
+      <icon class='searchcion1' size='20' type='clear' bindtap='clear'></icon>
+      <!-- </view> -->
+    </view>
+    <view class='sousuo' bindtap='search'>搜索</view>
+  </view>
+
+  <!-- 搜索为宝利网的情况下 -->
+  <view class="center_BL" hidden="{{Thunderstorm}}">
+    <image class="Bao_carch" src="../../images/searchbao.png"></image>
+    <view class="C_text">该平台没有查到暴雷记录</view>
+  </view>
+  <!-- 搜索为融贝网的情况下 -->
+  <view class="center_BL" hidden="{{better}}">
+    <image class="Bao_carch" src="../../images/15@3x.png"></image>
+    <view class="C_text">该平台是头部平台</view>
+    <view class="C_text">信誉良好，可放心投资</view>
+  </view>
+  <!-- 搜索为p2p的情况下 -->
+  <view class="content_center" hidden="{{have_con}}">
+    <view class="Use_money" wx:for="{{comdata}}" bindtap="detail" data-id='{{item.xhid}}' data-index="{{index}}" data-share="{{item.share_num}}" data-read="{{item.read_num}}">
+      <!-- 顶部图片和右边 -->
+      <view class="your_m">
+        <image src="{{item.img}}"></image>
+        <view class="right_Title">{{item.title}}</view>
+      </view>
+      <!-- 下边阅读转发 -->
+      <view class="read">
+        <!--阅读  -->
+        <view class="read_list">
+          <image src="../../images/view@3x.png"></image>
+          <view style="width:194rpx;">
+            <text style="font-weight:bold;">阅读</text> {{item.read_num}}
+          </view>
+        </view>
+        <!-- 转发 -->
+        <view class="to_share">
+          <image src="../../images/Fill1@3x.png"></image>
+          <view style="width:194rpx;">
+            <text style="font-weight:bold;">转发</text> {{item.share_num}}
+          </view>
+        </view>
+        <!-- 时间 -->
+        <view class="to_time">{{item.update_time}}</view>
+      </view>
+      <import src="../../parse/index.wxml" />
+      <view class="wxParser des">
+        <template is="wxParser" data="{{wxParserData:des.nodes}}" />
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view hidden="{{hidden}}" class='load'>
+  <image src='../../images/loading.gif'></image>
+ </view>
