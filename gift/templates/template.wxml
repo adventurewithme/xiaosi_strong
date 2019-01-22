@@ -1,0 +1,60 @@
+<template name="signIn">
+  <view class="shadow" wx:if="{{showShadow}}" catchtap='close'>
+
+    <view catchtap='foo' class="modal" style="height:{{sigined?844:728}}rpx">
+
+      <view class="date">
+        <view></view>
+          <view wx:for="{{arr}}" wx:key="unique" class="signItem lf">
+            <text class='date-up'>{{item.date}}</text>
+            <view class="score" wx:if="{{item.signIn}}">
+              <image src='../../images/sign_btn_selected.png'></image>
+            </view>
+            <view class="score" wx:else>
+              <text>+{{item.score}}</text>
+            </view> 
+          </view>
+
+      </view>
+      <!--签到内容开始  -->
+      <view class='signContent'>
+
+        <button class="signBtn" wx:if="{{!sigined}}" bindtap='signIn'>签到</button>
+        <button class="signBtned" wx:else>已签到</button>
+  
+        <view  class="scoreView" wx:if="{{sigined && (!noData)}}">
+
+          <view class='signedScore integralContented lf'>
+            <image src='../../images/integral_card@2x.png' class='signedScore signImg'></image>
+            <view class='signedScore signImg cardLeft'>
+              <text>积分\n</text>
+              <text class='numbered'>{{userScore}}</text>
+            </view>
+          </view>
+
+          <view class='exchange lf'>
+            <text>可兑换\n</text>
+            <image src='../../images/integral_icon@2x.png' class='icon'></image>
+          </view>
+
+          <view class='signedScore integralContented rt'>
+            <image src='{{ad.small_gift_pic}}' class='signedScore signImg'></image>
+            <view class='signedScore signImg integralNUm'>积分：{{ad.score}}</view>
+          </view>
+
+          <view style="clear:both"></view>
+          <button class='exchangeBtn' bindtap="goScore">去兑换</button>
+
+        </view>
+
+        <view wx:else class="signScore integralContent">
+          <image src='../../images/integral_card.png' class="signScore signImg"></image>  
+          <view class="signScore signImg signMsg">
+            <text class="integral">积分\n</text>
+            <text class="number">{{userScore}}</text>
+          </view>
+        </view> 
+      </view>
+    </view>
+  </view>
+</template>

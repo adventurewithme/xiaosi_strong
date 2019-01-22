@@ -1,0 +1,239 @@
+/* 头部开始  */
+view, scroll-view, text {
+  box-sizing: border-box;
+}
+page {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  position: relative;
+}
+.containerOne {
+  height: 100%;
+  padding-bottom: 30rpx;
+}
+.header {
+  width: 100%;
+  height: 198rpx;
+  position: relative;
+}
+.top {
+  width: 100%;
+  height: 198rpx;
+}
+.top-txt {
+  position: absolute;
+  top: 38rpx;
+  left: 50rpx;
+  font-size: 44rpx;
+  font-family: PingFangSC-Medium;
+  color: #fff8d4;
+}
+.top-stxt {
+  position: absolute;
+  top: 110rpx;
+  left: 50rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular;
+  color: #fff8d4;
+}
+.title {
+  width: 100%;
+  height: 72rpx;
+  background: #f4f4f4;
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium;
+  color: #333;
+  font-weight: 600;
+  line-height: 72rpx;
+  padding-left: 32rpx;
+}
+/* 头部结束  */
+/*内容开始  */
+.content {
+  width: 100%;
+  height: 180rpx;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  position: relative;
+  padding:20rpx 32rpx;
+}
+.formBtn {
+  width: 100vw !important;
+  height: 180rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: transparent;
+  z-index: 0;
+}
+.gift-header image {
+  width: 164rpx;
+  height: 144rpx;
+  margin-right:20rpx;
+  border-radius: 10rpx;
+}
+.gift-name {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 600;
+}
+.red{
+  color:#D84E43 !important;
+  font-size:28rpx;
+}
+.gift-des,.buy-num {
+  width: 320rpx;
+  font-size: 28rpx;
+  line-height: 1;
+  padding-top: 10rpx;
+  color: #888;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.gift-des{
+  line-height:50rpx;
+}
+.buy-num{
+  width:172rpx;
+  font-size: 24rpx;
+  text-align: center;
+  position: absolute;
+  bottom:20rpx;
+  right:28rpx;
+}
+.gift-up {
+  margin-top: 36rpx;
+  margin-left: 60rpx;
+  /* margin: auto auto; */
+}
+.mf {
+  text-align: center;
+}
+.gift-click {
+  width: 172rpx;
+  height: 60rpx;
+  position: absolute;
+  top:50rpx;
+  right:28rpx;
+  background: #d84e43;
+  border-radius: 6px;
+  font-size: 26rpx;
+  font-family: PingFangSC-Medium;
+  color: #fff;
+  line-height: 60rpx;
+  text-align: center;
+  /* margin-top: 12rpx; */
+}
+.qd {
+  background: green;
+  width:172rpx;
+}
+/*内容结束  */
+.click {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 80rpx;
+  background: #fff5f5;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #d84e43;
+  z-index: 10;
+}
+.touch {
+  width: 40rpx;
+  height: 40rpx;
+  background: #d84e43;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 100;
+  margin: -20rpx;
+  animation: ripple 0.5s ease;
+}
+/* 点击动画  */
+@keyframes ripple {
+  0% {
+    opacity: 1;
+    transform: scale(1.0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3.0);
+  }
+}
+/* 加载完成提示消息 */
+.notice{
+  font-size: 28rpx;
+  color:rgb(112, 82, 82);
+}
+/* 导航样式 */
+.nav {
+  height: 112rpx;
+  line-height: 112rpx;
+  font-family:PingFangSC-Medium;
+  font-size: 32rpx;
+  box-shadow:0px 2px 4px 0px rgba(0,0,0,0.12);
+}
+.nav scroll-view {
+  height: 112rpx;
+  white-space: nowrap;
+}
+.nav view {
+  display: inline-block;
+  width: auto;
+  padding:0 32rpx;
+  text-align: center;
+}
+.nav .active {
+  color: #D84E43;
+  position: relative;
+}
+.nav .active:before{
+  width:40rpx;
+  height:6rpx;
+  background:#d84e43;
+  border-radius:6rpx;
+  position: absolute;
+  bottom:20rpx;
+  left:calc(50% - 20rpx);
+  content:'';
+  z-index: 2;
+}
+/* 滚动条 */
+::-webkit-scrollbar-thumb:horizontal {
+  /*水平滚动条的样式*/
+  width: 0;
+  background-color:transparent;
+  -webkit-border-radius: 0;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: transparent; /*滚动条的背景颜色*/
+  -webkit-border-radius: 0; /*滚动条的圆角宽度*/
+}
+::-webkit-scrollbar {
+  width: 0; /*滚动条的宽度*/
+  height: 0; /*滚动条的高度*/
+}
+::-webkit-scrollbar-thumb:vertical {
+  /*垂直滚动条的样式*/
+  height: 0;
+  background-color: transparent;
+  -webkit-border-radius: 0;
+  outline: 0;
+  outline-offset: 0;
+  border: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  /*滚动条的hover样式*/
+  height: 0;
+  background-color: 0;
+  -webkit-border-radius: 0;
+}
+/* 内容盒子样式 */
+.content-box {
+  min-height: calc(100vh - 198rpx - 112rpx);
+}

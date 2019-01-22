@@ -1,0 +1,4 @@
+<view class="textarea-page {{textareaShow?'textarea-page-show':''}}">
+  <textarea maxlength='35' auto-focus="{{true}}" catchtap="onTap" bindinput='onSaying' bindconfirm="sayFinish" placeholder="{{placeCon}}" placeholder-style="color:#999;font-size:36rpx;line-height:50rpx;" value="{{say}}"></textarea>
+  <view class="btn" bindtap="sayFinish">确认</view>
+</view>   

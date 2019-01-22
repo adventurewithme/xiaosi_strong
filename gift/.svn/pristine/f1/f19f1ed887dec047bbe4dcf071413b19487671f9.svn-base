@@ -1,0 +1,27 @@
+<template name="auth">
+<!-- 
+    页面中添加变量  authrizeBoard:false
+    onLoad(){
+        this.setData({
+            authorizeBoard: app.globalData.authorizeBoard,
+        })
+    }
+    // 隐藏授权弹窗
+  hideAuthorize() {
+    this.setData({
+      authorizeBoard: false,
+    })
+    app.globalData.authorizeBoard = false; 
+  },
+
+-->
+<view class='toast' catchtap='hideAuthorize' wx-if="{{authorizeBoard}}">
+  <view class='authorize'>  
+    <image class='bj' src='../../images/bj@3x.png'></image>
+    <view class='tip center'>用心礼物提示您</view>
+    <view class='tipCon center'>此处需要您授权</view>
+    <!-- <button>取消</button> -->
+    <button class='confim' open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="onGetUserInfo" catchtap='hideAuthorize'>我知道了{{app.globalData.openid}}</button>
+  </view>
+</view>
+</template>

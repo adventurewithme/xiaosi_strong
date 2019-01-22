@@ -1,0 +1,65 @@
+<!--index.wxml-->
+<import src="../../templates/template.wxml" />
+<view class="containerOne">
+  <view class='touch' wx:if="{{touchAni}}" style='top:{{y}}px;left:{{x}}px'></view>
+  <!--头部开始  -->
+  <view class='header'>
+    <view class='top-img'>
+      <image src='../../images/top_bj@2x.png' class='top'></image>
+      <view class='top-txt'>微信红包新玩法</view>
+      <view class='top-stxt'>选礼物·送好友·领取立即到账</view>
+    </view>
+  </view>
+  <!-- 导航  -->
+  <view class='nav'>
+    <scroll-view scroll-x scroll-with-animation="{{true}}" enable-back-to-top scroll-into-view="{{'nav'+(activeNav>0?activeNav-1:activeNav)}}">
+      <block wx:for="{{navData}}" wx:key="{{index}}">
+        <view class='{{activeNav===index?"active":""}}' hover-class='view-hover' id="{{'nav'+index}}" data-key="{{item.id}}" catchtap="changeNav">
+          {{item.name}}
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <!-- 积分商品  -->
+  <view class='content-box' bindtouchstart='navTouchSt' bindtouchend='navTouchEnd'>
+    <view class="content" hover-class='view-hover' data-id='{{signData.ad.id}}' data-type='{{signData.ad.type}}' data-name='{{signData.ad.name}}' data-price='0' data-gift_pic='{{signData.ad.gift_pic}}' wx:if="{{!noData && activeNav === 0}}">
+      <form report-submit bindsubmit="formSubmit">
+        <button class="formBtn" style="width:{{screenWidth}}px" formType="submit" wx:if="hasClick"></button>
+      </form>
+      <view class='gift-header'>
+        <image src='{{signData.ad.small_gift_pic}}'></image>
+      </view>
+      <view class='gift-con'>
+        <view class='gift-name'>{{signData.ad.name}}</view>
+        <view class='gift-des'>{{signData.ad.description}}</view>
+        <text class="red">签到礼物</text>
+      </view>
+      <view class='gift-up'>
+        <view class='gift-click qd top' bindtap='showSign'>积分兑换</view>
+        <view class='buy-num'>{{signData.ad.buy_num>0?signData.ad.buy_num:0}}人兑换</view>
+      </view>
+    </view>
+    <!--内容开始  -->
+    <view class='content' hover-class='view-hover' wx:for="{{gift}}" wx:key="unique" data-id='{{item.id}}' bindtap='giftGift' data-type='{{item.type}}' data-name='{{item.name}}' data-price='{{item.price}}' data-gift_pic='{{item.gift_pic}}' data-num="{{item.buy_num}}" data-desc="{{item.description}}">
+      <form report-submit bindsubmit="formSubmit">
+        <button class="formBtn" style="width:{{screenWidth}}px" formType="submit"></button>
+      </form>
+      <view class='gift-header'>
+        <image src='{{item.small_gift_pic}}'></image>
+      </view>
+      <view class='gift-con'>
+        <view class='gift-name'>{{item.name}}</view>
+        <view class='gift-des'>{{item.description}}</view>
+        <view class='red'>￥{{item.price}}起可送</view>
+      </view>
+      <view class='gift-up'>
+        <view class='gift-click'>送出</view>
+        <view class='buy-num'>{{item.buy_num>0?item.buy_num:0}}人已送出</view>
+      </view>
+    </view>
+    <view class="notice center {{opc}}" wx:if="{{notMore}}">更多礼物敬请期待╮(╯▽╰)╭</view>
+  </view>
+  <!--内容结束  -->
+  <!-- <view class='click' catchtap="showSign" wx:if="{{!signData.sigined}}">签到领取礼物</view> -->
+  <template is="signIn" data="{{...signData}}"></template>
+</view>

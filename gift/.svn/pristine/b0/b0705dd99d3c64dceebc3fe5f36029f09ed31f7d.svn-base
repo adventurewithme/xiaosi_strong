@@ -1,0 +1,65 @@
+<!--pages/score/score.wxml-->
+ <import src="../../templates/template.wxml" /> 
+<view class="main">
+  <view class="header">
+    <view>
+      <view class="userInfo lf" bindtap="toMine">   
+        <view class="user-pic lf">
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <open-data class="lf" type="userNickName"></open-data>
+      </view>  
+      <view class="rule rt">
+        <text bindtap='rule'>积分规则</text>
+        <view bindtap='showSign'>签到领取积分</view>
+      </view>
+    </view> 
+    <view class="scoreDiv">
+      <view class="lf">
+         <text class="scoreNum">{{signData.yesterday}}\n</text> 
+        <text>昨日积分</text>
+      </view>
+      <view class="lf">
+        <text class="scoreNum">{{signData.userScore}}\n</text>
+        <text>当前积分</text>
+      </view>
+    </view>
+  </view>
+  <scroll-view class="scroll" scroll-y bindscrolltoupper='lastPage' bindscrolltolower='nextPage'>
+    <view wx:for="{{giftList}}" wx:key="unique" wx:for-index="idx" data-index="{{idx}}" style="top:{{idx*180}}rpx" class="itemView" id='{{item.id}}'  wx:if="{{item.id}}">
+        <form report-submit id='{{item.id}}' catchsubmit="formSubmit" data-index="{{idx}}">
+            <button class="formBtn" formType="submit"></button>
+        </form>
+        <image src="{{item.small_gift_pic}}" class="lf"></image>
+        <view class="lf son2">
+            <text class="title">{{item.name}}\n</text>
+            <text>{{item.description}}\n</text>
+            <text class="red">{{item.buy_num}}人已兑换</text>
+        </view>
+
+        <view class="son3 rt">
+            <text class="red" style="font-size:28rpx">积分{{item.score}}</text>
+            <button class="top green" id="{{item.id}}" data-score="{{item.score}}" data-index="{{idx}}" bindtap="{{item.record_id?'toLetter':'payEvent'}}" style="{{item.record_id?'background:#d84e43;':''}}">{{item.record_id?'送出':'兑换'}}</button>  
+            <text>{{item.status}}</text>
+        </view>
+    </view>
+    <view class="notice center {{opc}}" style="top:{{giftList.length*180}}rpx" wx:if="{{showNotice}}">阿哦，没有更多数据了╮(╯▽╰)╭</view>
+  </scroll-view>
+
+  <view class="shadow" wx:if="{{showRule}}">
+    <view class="ruleModal">
+      <image src="../../images/btn_delete@3x.png" bindtap='closeRule'></image>
+      <view class="head">积分规则</view>
+      <view>
+        <view class="del lf"></view><text class="lf">1.</text><view class="msg">连续每日签到将获得对应的积分</view>
+        <view class="del lf"></view><text class="lf">2.</text><view class="msg">七天为一个周期，中断签到则从第一天的积分开始领取</view>
+        <view class="del lf"></view><text class="lf">3.</text><view class="msg">积分将根据不同的运营活动进行分值调整</view>
+        <text>注：最终解释权归小司文化所有</text>
+      </view>
+    </view>
+  </view>
+
+  <template is="signIn" data="{{...signData}}"></template>
+</view>
+<import src="../../templates/auth/auth.wxml" />
+<template data="{{authorizeBoard}}" is="auth"></template>

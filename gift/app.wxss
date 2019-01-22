@@ -1,0 +1,77 @@
+/**app.wxss**/
+@import "templates/signIn.wxss";
+page{
+  color:#333333;
+  font-family: PingFangSC;
+}
+.view-hover{
+  background:#e7e7e7 !important;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+} 
+.main{
+  width:100%;
+  overflow-x: hidden;
+  padding:0;
+  margin:0;
+  font-size: 28rpx;
+} 
+view{
+  box-sizing: border-box;
+}
+
+button::after{
+  border: none;
+}
+::-webkit-scrollbar{
+  width:0;
+  height:0;
+  color:transparent;
+}
+.lf{
+  float:left;
+}
+.rt{
+  float:right;
+}
+.clear:after{
+  display: block;
+  content:"";
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.center{
+  text-align: center;
+}
+.notice{
+  width:100%;
+  position:absolute;
+  left:0;
+  height:80rpx;
+  line-height:80rpx;
+  transition:all 0.5s linear;
+  animation-name:fadeIn;
+  animation-duration:1s;
+  animation-timing-function:ease-in;
+  color:#333;
+}
+.top{
+  z-index: 100;
+}
+@keyframes fadeIn{
+    0%{
+        opacity:0;
+    }
+    100%{
+         opacity:1;
+    }
+}
+.fadeOut{
+  opacity: 0 !important;
+}

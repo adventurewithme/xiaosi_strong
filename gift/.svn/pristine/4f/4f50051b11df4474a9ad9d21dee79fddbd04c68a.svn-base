@@ -1,0 +1,121 @@
+<view class='letter-con' hidden="{{showView}}">
+<!-- <view hidden="{{showView}}" style='position:relative;transition:all .3s;'> -->
+  <view class='top-pic'>
+    <image class='top-lamp' src='../../images/top_bj@3x.png'></image>
+    <view class='title'>
+      <view>{{title}}</view>
+      <view class='sent-num' wx:if="{{sentNum>0}}">{{sentNum}}人已送出</view>
+    </view>
+    <view class='ani-counter {{aniActive?aniActive:""}}' wx-if="{{aniShow}}">X{{counter}}</view>
+    <image src="{{picSrc}}" bindload='imgLoad'></image>
+    <view class="downIcon" wx:if="{{giftState===4}}">
+      <image src="../../images/icon_share@3x.png" bindtap='showPic'></image>
+    </view>
+  </view>
+  <!--  主体  -->
+  <view class='main {{giftState !==4?"main-h":""}}'>
+    <view class='header clear'>
+      <view class='lf price'>
+        {{totalPrice>0?('￥'+totalPrice):"免费"}}
+      </view>
+      <block wx-if='{{giftState===1 && totalPrice>0}}'>
+        <view class='lf counter-box center'>
+          <text class='' bindtap='numDn' data-counter="{{counter}}">-</text>
+          <text class='num'>{{counter}}</text>
+          <text class='' bindtap='numUp' data-counter="{{counter}}">+</text>
+        </view>
+      </block>
+      <block>
+        <view class='rt sale-status center'  wx:if="{{giftState===1 || giftState===4}}">
+          <button open-type='{{giftState===1?"share":""}}'>{{giftState===4?"已领取":"求礼物"}}</button>
+          <view class='to-ask' wx:if="{{!nickName}}" catchtap="toAsk"></view>
+        </view> 
+      </block>
+    </view>
+    <view class='body' bindtap="{{giftState === 1 || giftState===7 || (giftState ===2 && totalPrice==0 )?'toSay':''}}">
+    <!-- <view class='body' style="{{scrollTop?'position:fixed;top:20rpx;left:0;':''}}"> -->
+       <image class='body-bj' src='../../images/note_bj@3x.png'></image> 
+      <view class='content'>
+        <text class='textarea1' decode="true" space="true">{{say}}</text>
+        <!-- <text class='textarea1' decode="true" space="true" wx:if="{{(textareaShow && (giftState===1 || giftState===7)) ||  (giftState===2 && price ==0 && textareaShow) ? false: true}}">{{say}}</text> -->
+        <!-- <textarea class="{{!textareaShow?'textareaShow':''}}" show-confirm-bar="1" adjust-position="" row="2" maxlength='45' wx-if='{{giftState === 1 || giftState===7 || (giftState ===2 && totalPrice==0 )}}' bindinput='onSaying' bindblur='sayFinish' bindfocus="onFocus" value='{{say}}'></textarea> -->
+        <view class='placeholder' wx:if="{{(say || textareaPlaceholder)?false:true}}">{{placeCon}}</view>
+      </view>
+      <view class='from clear'>
+        <open-data wx:if="{{!uname}}" class="" type="userNickName"></open-data>
+        <view wx:if="{{uname}}">{{uname}}</view>
+        <view>{{saledTime}}</view>
+      </view>
+    </view>
+    <!-- <view class='saled-time' wx-if="{{giftState===2 || giftState===3 ||giftState===5 || giftState===6}}">{{saledTime}}</view> -->
+    <view class='footer state{{giftState}}'>
+      <block wx-if="{{giftState === 1}}">
+        <view class='to-pay' bindtap="toPay">塞钱进礼物</view>
+      </block>
+      <block wx-if="{{giftState === 2}}">
+        <view class='sendFriends'>
+          <!-- <view class='auth-shadow' bindtap='beforeShare'></view> -->
+          <button class='' bindtap="toShare" open-type="share">选择好友送出</button>
+        </view>
+      </block>
+      <block wx-if="{{giftState === 3}}">
+        <view class='to-share' bindtap="toReceive">领取</view>
+      </block>
+      <block wx-if="{{giftState === 4}}">
+        <view bindtap="toHome">我也要送礼物</view>
+      </block>
+      <view class='sented' bindtap="toHome" wx-if="{{giftState ===5 }}">
+        {{"礼物被领走了"}}
+      </view>
+      <block wx-if="{{giftState === 6}}">
+        <view class='to-share time-out' bindtap="toHome">已过期</view>
+      </block>
+      <block wx-if="{{giftState === 7}}">
+        <view class='to-share' bindtap="{{!askOrder?'payList':'hideAskBox'}}">{{!askOrder?'待支付':"已送出"}}</view>
+        <view class='to-home' bindtap='toHome'>去首页</view>
+      </block>
+      <block wx-if="{{giftState ===8 }}">
+        <view class='sented' bindtap="toHome">
+          {{"对方已领取"}}
+        </view>
+        <view class='to-home' bindtap='toHome'>回首页</view>
+      </block>
+      <block wx-if="{{giftState ===9 }}">
+        <view class='sented' bindtap="toHome">
+          已送出
+        </view>
+        <view class='to-home' bindtap='toHome'>回首页</view>
+      </block>
+    </view> 
+  </view>
+  <!-- 平台费用说明  -->
+  <view class='cost' wx:if="{{giftState===1}}">好友领取立即获得等额微信零钱</view>
+  <!-- 显示请求信息  -->
+  <view class="shadow" hidden="{{!showCvs}}" bindtap='hideCvs'>
+          <canvas style="width:{{screenWidth}}px;height:{{screenHeight}}px" canvas-id="cvs" wx:if="{{giftState===4}}" class="downCvs" catchtap='foo'></canvas>
+          <view class="btns" style="width:{{screenWidth}}px;top:{{screenHeight+50}}px">
+            <button class="lf" open-type='share'>分享给好友</button>
+            <button class="rt" catchtap='downPic'>保存到相册</button>
+          </view>
+  </view>
+  <canvas style="width:{{screenWidth*2}}px;height:{{screenHeight*2}}px" canvas-id="pic" wx:if="{{giftState===4}}" class="pic"></canvas>
+</view>
+<!--  支付完成弹窗  -->
+<view class='askBox' wx:if="{{askBox}}" catchtap="hideAskBox">
+  <view class='content'>
+    <view class='text'>
+      礼物已送出，去告诉他
+    </view>
+    <button open-type='share'>确定</button>
+  </view>
+</view>
+<!-- 领取礼物页面 -->
+<view class="contentOne {{goaniActive?'goaniActive':''}}" wx:if="{{goAni && giftState===3?true:false}}">
+  <view class="goimg">
+    <image src='../../images/receive_bg.png'></image>
+    <image class='open'  bindtap='hideAni' src='../../images/btn_open.png'></image>
+  </view>
+  <view class="txt">解释权归小司文化</view>
+</view>
+<import src="../../templates/auth/auth.wxml" />
+<template data="{{authorizeBoard}}" is="auth"></template>
